@@ -218,7 +218,7 @@
             stock=$("#pstock").val();
 
             if (idarticulo != "" && cantidad!="" && cantidad>0 && descuento!="" && precio_venta!=""){
-                if (stock>=cantidad) {
+                if (parseInt(stock) >= parseInt(cantidad)) {
                     subtotal[cont]= (cantidad*precio_venta-descuento);
                     total=total+subtotal[cont];
 

@@ -50,9 +50,8 @@ class VentaController extends Controller
     {
         $personas = DB::table('persona')->get();
         $articulos = DB::table('articulo as art')
-            ->join('detalle_ingreso as di', 'art.idarticulo', '=', 'di.idarticulo')
             ->select(DB::raw('CONCAT(art.codigo, " ", art.nombre) as articulo'),
-                'art.idarticulo', 'art.stock', DB::raw('avg(di.precio_venta) as precio_promedio'))
+                'art.idarticulo', 'art.stock', 'art.precio as precio_promedio')
             ->where('art.estado', '=', 'Activo')
             ->where('art.stock', '>', '0')
             ->groupBy('articulo', 'art.idarticulo', 'art.stock')
@@ -98,6 +97,13 @@ class VentaController extends Controller
         } catch (Exception $e){
             DB::rollback();
         }
+        return Redirect::to('ventas/venta');
+    }
+
+    public function destroy($id){
+        $venta = Venta::findOrFail($id);
+        $venta->estado='C';
+        $venta->update();
         return Redirect::to('ventas/venta');
     }
 }

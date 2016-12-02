@@ -54,6 +54,12 @@
 							</div>
 							<div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
 								<div class="form-group">
+									<label for="descripcion">Precio</label>
+									<input type="number" min="0" name="precio"  value="{{old('precio')}}" class="form-control" placeholder="Precio...">
+								</div>
+							</div>
+							<div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
+								<div class="form-group">
 									<label for="imagen">Imagen</label>
 									<input type="file" name="imagen" class="form-control">
 								</div>

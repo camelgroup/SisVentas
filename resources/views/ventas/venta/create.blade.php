@@ -29,26 +29,22 @@
             </div>
         </div>
         <div class="col-lg-4 col-sm-4 col-md-4 col-xs-12">
-            <div class="form-group">
+            <div class="form-group" style="display: none;">
                 <label for="tipo_comprobante">Tipo Comprobante</label>
-                <select name="tipo_comprobante" id="tipo_comprobante" class="form-control">
-                    <option value="Boleta">Boleta</option>
-                    <option value="Factura">Factura</option>
-                    <option value="Ticket">Ticket</option>
-                </select>
+                <input type="hidden" name="tipo_comprobante" id="tipo_comprobante" value="Venta" class="form-control">
             </div>
         </div>
         <div class="col-lg-4 col-sm-4 col-md-4 col-xs-12">
-            <div class="form-group">
+            <div class="form-group" style="display: none;">
                 <label for="serie_comprobante">Serie Comprobante</label>
-                <input type="text" name="serie_comprobante" value="{{old('serie_comprobante')}}" class="form-control"
+                <input type="hidden" name="serie_comprobante" value="001" class="form-control"
                        placeholder="Serie comprobante...">
             </div>
         </div>
         <div class="col-lg-4 col-sm-4 col-md-4 col-xs-12">
-            <div class="form-group">
+            <div class="form-group" style="display: none;">
                 <label for="num_comprobante">Numero Comprobante</label>
-                <input type="text" name="num_comprobante" value="{{old('num_comprobante')}}" class="form-control"
+                <input type="hidden" name="num_comprobante" value="001" class="form-control"
                        placeholder="Numero comprobante...">
             </div>
         </div>
@@ -92,7 +88,7 @@
                 <div class="col-lg-4 col-sm-4 col-md-4 col-xs-12">
                     <div class="form-group">
                         <label for="descuento">Descuento</label>
-                        <input type="text" name="pdescuento" id="pdescuento" class="form-control"
+                        <input type="text" name="pdescuento" id="pdescuento" class="form-control" value="0" 
                                placeholder="Descuento...">
                     </div>
                 </div>
