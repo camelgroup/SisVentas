@@ -29,12 +29,12 @@
                 <label for="nombre">Documento</label>
                 <select name="tipo_documento" class="form-control">
                     <option value="CI">CI</option>
-                    <option value="PASS">PASS</option>
+                    <option value="NIT">NIT</option>
                 </select>
             </div>
             <div class="form-group">
                 <label for="nombre">Numero documento</label>
-                <input type="text" name="num_documento" value="{{old('num_documento')}}" class="form-control"
+                <input type="text" name="num_documento" required value="{{old('num_documento')}}" class="form-control"
                        placeholder="Numero documento...">
             </div>
             <div class="form-group">
