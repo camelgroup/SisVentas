@@ -185,5 +185,88 @@
 <!-- AdminLTE App -->
 <script src="{{asset('js/app.min.js')}}"></script>
 
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#bt_add').click(function () {
+                agregar();
+            });
+        });
+
+        var cont = 0;
+        total = 0;
+        subtotal = [];
+        $("#guardar").hide();
+        $("#pidarticulo").change(mostrarValores);
+
+        function mostrarValores()
+        {
+            datosArticulo=document.getElementById('pidarticulo').value.split('_');
+            $("#pprecio_venta").val(datosArticulo[2]);
+            $("#pstock").val(datosArticulo[1]);
+        }
+
+        function agregar() {
+
+            datosArticulo=document.getElementById('pidarticulo').value.split('_');
+
+            idarticulo = datosArticulo[0];
+            articulo = $("#pidarticulo option:selected").text();
+            cantidad = $("#pcantidad").val();
+
+            descuento = $("#pdescuento").val();
+            precio_venta = $("#pprecio_venta").val();
+            stock=$("#pstock").val();
+
+            if (idarticulo != "" && cantidad!="" && cantidad>0 && descuento!="" && precio_venta!=""){
+                if (stock>=cantidad) {
+                    subtotal[cont]= (cantidad*precio_venta-descuento);
+                    total=total+subtotal[cont];
+
+                    var fila = '<tr class="selected" id="fila' + cont + '"> <td><button type="button" class="btn btn-warning" onclick="eliminar('+cont+
+                    ');">X</button> </td><td><input type="hidden" name="idarticulo[]" value="'+idarticulo+'">'+articulo+
+                    '</td><td><input type="number" name="cantidad[]" value="'+cantidad+
+                    '"></td><td><input type="number" name="precio_venta[]" value="'+precio_venta+
+                    '"></td><td><input type="number" name="descuento[]" value="'+descuento+
+                    '"></td><td>'+subtotal[cont]+'</td></tr>';
+
+                    cont++;
+
+                    limpiar();
+                    $("#total").html("$/. " + total);
+                    $("#total_venta").val(total);
+                    evaluar();
+                    $("#detalles").append(fila);
+
+                } else {
+                    alert("la cantidad a vender supera el stock");
+                }
+            } else {
+                alert("Error al ingresar el detalle de la venta, revise los datos del articulo");
+            }
+        }
+
+        function limpiar() {
+            $("#pcantidad").val("");
+            $("#pdescuento").val("");
+            $("#pprecio_venta").val("");
+        }
+
+        function evaluar() {
+            if(total>0){
+                $("#guardar").show();
+            } else {
+                $("#guardar").hide();
+            }
+        }
+
+        function eliminar(index) {
+            total = total-subtotal[index];
+            $("#total").html("$/. " + total);
+            $("#total_venta").html(total);
+            $("#fila" + index).remove();
+            evaluar();
+        }
+
+    </script>
 </body>
 </html>

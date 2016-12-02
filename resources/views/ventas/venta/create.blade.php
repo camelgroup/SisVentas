@@ -141,25 +141,4 @@
     </div>
     {!!Form::close()!!}
 
-    @push('scripts')
-    <script>
-        $(document).ready(function () {
-            $('#bt_add').click(function () {
-                agregar();
-            });
-        });
-
-        var cont = 0;
-        total = 0;
-        subtotal = [];
-        $("#guardar").hide();
-
-        function agregar() {
-            idarticulo = $("#pidarticulo").val();
-            articulo = $("#pidarticulo option:selected").text();
-            cantidad = $("#pcantidad").val();
-            precio_venta = $("#pprecio_venta").val();
-        }
-    </script>
-    @endpush
 @endsection

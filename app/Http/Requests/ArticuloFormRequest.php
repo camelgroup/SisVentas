@@ -23,13 +23,36 @@ class ArticuloFormRequest extends Request
      */
     public function rules()
     {
-        return [
-            'idcategoria'=>'required',
-            'codigo'=>'required|max:50',
-            'nombre'=>'required|max:100',
-            'stock'=>'required|numeric',
-            'descripcion'=>'max:512',
-            'imagen'=>'mimes:jpeg,bmp,png'
-        ];
+        switch($this->method())
+        {
+            case 'GET':
+            case 'DELETE':
+            {
+                return [];
+            }
+            case 'POST':
+            {
+                return [
+                    'idcategoria'=>'required',
+                    'codigo'=>'required|Unique:articulo|max:50',
+                    'nombre'=>'required|max:100',
+                    'stock'=>'required|numeric',
+                    'descripcion'=>'max:512',
+                    'imagen'=>'mimes:jpeg,bmp,png'
+                ];
+            }
+            case 'PUT':
+            case 'PATCH':
+            {
+                return [
+                    'idcategoria'=>'required',
+                    'codigo'=>'required|max:50',
+                    'nombre'=>'required|max:100',
+                    'stock'=>'required|numeric',
+                    'descripcion'=>'max:512',
+                    'imagen'=>'mimes:jpeg,bmp,png'
+                ];
+            }
+        }
     }
 }
