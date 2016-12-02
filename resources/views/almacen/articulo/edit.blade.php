@@ -47,7 +47,7 @@
 						<div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
 							<div class="form-group">
 								<label for="stock">Stock</label>
-								<input type="text" name="stock"  Required value="{{$articulo->stock}}" class="form-control" >
+								<input type="number" min="0" name="stock"  Required value="{{$articulo->stock}}" class="form-control" >
 							</div>
 						</div>
 						<div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
