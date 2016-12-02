@@ -3,6 +3,7 @@
 namespace sisVentas\Http\Requests;
 
 use sisVentas\Http\Requests\Request;
+use sisVentas\Persona;
 
 class PersonaFormRequest extends Request
 {
@@ -23,13 +24,36 @@ class PersonaFormRequest extends Request
      */
     public function rules()
     {
-        return [
-            'nombre'=>'required|max:100',
-            'tipo_documento'=>'required|max:20',
-            'num_documento'=>'required|max:15',
-            'direccion'=>'max:70',
-            'telefono'=>'max:15',
-            'email'=>'Required|Between:3,64|Email|Unique:persona'
-        ];
+        switch($this->method())
+        {
+            case 'GET':
+            case 'DELETE':
+            {
+                return [];
+            }
+            case 'POST':
+            {
+                return [
+                    'nombre'=>'required|max:100',
+                    'tipo_documento'=>'required|max:20',
+                    'num_documento'=>'required|numeric',
+                    'direccion'=>'max:70',
+                    'telefono'=>'numeric',
+                    'email'=>'Required|Between:3,64|Email|Unique:persona|email'
+                ];
+            }
+            case 'PUT':
+            case 'PATCH':
+            {
+                return [
+                    'nombre'=>'required|max:100',
+                    'tipo_documento'=>'required|max:20',
+                    'num_documento'=>'required|numeric',
+                    'direccion'=>'max:70',
+                    'telefono'=>'numeric',
+                    'email'=>'Required|Between:3,64|Email'
+                ];
+            }
+        }
     }
 }

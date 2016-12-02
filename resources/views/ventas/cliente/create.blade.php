@@ -34,12 +34,12 @@
             </div>
             <div class="form-group">
                 <label for="nombre">Numero documento</label>
-                <input type="text" name="num_documento" required value="{{old('num_documento')}}" class="form-control"
+                <input type="number" name="num_documento" required value="{{old('num_documento')}}" class="form-control"
                        placeholder="Numero documento...">
             </div>
             <div class="form-group">
                 <label for="nombre">Telefono</label>
-                <input type="text" name="telefono" value="{{old('telefono')}}" class="form-control"
+                <input type="number" name="telefono" value="{{old('telefono')}}" class="form-control"
                        placeholder="Telefono...">
             </div>
             <div class="form-group">

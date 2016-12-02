@@ -23,9 +23,28 @@ class CategoriaFormRequest extends Request
      */
     public function rules()
     {
-        return [
-            'nombre'=>'required|max:50',
-            'descripcion'=>'max:256',
-        ];
+        switch($this->method())
+        {
+            case 'GET':
+            case 'DELETE':
+            {
+                return [];
+            }
+            case 'POST':
+            {
+                return [
+                    'nombre'=>'required|max:50|unique:categoria,nombre',
+                    'descripcion'=>'max:256',
+                ];
+            }
+            case 'PUT':
+            case 'PATCH':
+            {
+                return [
+                    'nombre'=>'required|max:50',
+                    'descripcion'=>'max:256',
+                ];
+            }
+        }
     }
 }
