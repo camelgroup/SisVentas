@@ -30,9 +30,9 @@
                 <select name="tipo_documento" class="form-control">
                     @if($persona->tipo_documento=='CI')
                         <option value="CI" selected>CI</option>
-                        <option value="PASS">PASS</option>
-                    @elseif($persona->tipo_documento=='PASS')
-                        <option value="PASS" selected>PASS</option>
+                        <option value="NIT">NIT</option>
+                    @elseif($persona->tipo_documento=='NIT')
+                        <option value="NIT" selected>NIT</option>
                         <option value="CI">CI</option>
                     @endif
                 </select>
