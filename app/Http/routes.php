@@ -20,3 +20,4 @@ Route::resource('almacen/articulo','ArticuloController');
 Route::resource('ventas/cliente','ClienteController');
 Route::get('/{slug?}', 'ClienteController@index');
 Route::resource('ventas/venta','VentaController');
+Route::resource('nosotros/camel','CController');
