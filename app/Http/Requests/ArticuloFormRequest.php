@@ -36,7 +36,7 @@ class ArticuloFormRequest extends Request
                     'idcategoria'=>'required',
                     'codigo'=>'required|Unique:articulo|max:50',
                     'nombre'=>'required|max:100',
-                    'stock'=>'required|numeric',
+                    'stock'=>'required|numeric|min:1',
                     'descripcion'=>'max:512',
                     'imagen'=>'mimes:jpeg,bmp,png'
                 ];
@@ -48,7 +48,7 @@ class ArticuloFormRequest extends Request
                     'idcategoria'=>'required',
                     'codigo'=>'required|max:50',
                     'nombre'=>'required|max:100',
-                    'stock'=>'required|numeric',
+                    'stock'=>'required|numeric|min:1',
                     'descripcion'=>'max:512',
                     'imagen'=>'mimes:jpeg,bmp,png'
                 ];
