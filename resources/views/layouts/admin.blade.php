@@ -221,26 +221,33 @@
 
             if (idarticulo != "" && cantidad!="" && cantidad>0 && descuento!="" && precio_venta!=""){
                 if (parseInt(stock) >= parseInt(cantidad)) {
-                    subtotal[cont]= (cantidad*precio_venta-descuento);
-                    total=total+subtotal[cont];
+                    if (parseInt(descuento) < parseInt(precio_venta)) {
+                        if (parseInt(descuento) > -1) {
+                        subtotal[cont]= (cantidad*precio_venta-descuento);
+                        total=total+subtotal[cont];
 
-                    var fila = '<tr class="selected" id="fila' + cont + '"> <td><button type="button" class="btn btn-warning" onclick="eliminar('+cont+
-                    ');">X</button> </td><td><input type="hidden" name="idarticulo[]" value="'+idarticulo+'">'+articulo+
-                    '</td><td><input type="number" name="cantidad[]" value="'+cantidad+
-                    '"></td><td><input type="number" name="precio_venta[]" value="'+precio_venta+
-                    '"></td><td><input type="number" name="descuento[]" value="'+descuento+
-                    '"></td><td>'+subtotal[cont]+'</td></tr>';
+                        var fila = '<tr class="selected" id="fila' + cont + '"> <td><button type="button" class="btn btn-warning" onclick="eliminar('+cont+
+                        ');">X</button> </td><td><input type="hidden" name="idarticulo[]" value="'+idarticulo+'">'+articulo+
+                        '</td><td><input type="number" name="cantidad[]" value="'+cantidad+
+                        '"></td><td><input type="number" name="precio_venta[]" value="'+precio_venta+
+                        '"></td><td><input type="number" name="descuento[]" value="'+descuento+
+                        '"></td><td>'+subtotal[cont]+'</td></tr>';
 
-                    cont++;
+                        cont++;
 
-                    limpiar();
-                    $("#total").html("$/. " + total);
-                    $("#total_venta").val(total);
-                    evaluar();
-                    $("#detalles").append(fila);
-
+                        limpiar();
+                        $("#total").html("$/. " + total);
+                        $("#total_venta").val(total);
+                        evaluar();
+                        $("#detalles").append(fila);
+                        } else {
+                        alert("El descuento no puede ser negativo");
+                        }
+                    } else {
+                        alert("El descuento no puede ser mayor al precio de venta");
+                    }
                 } else {
-                    alert("la cantidad a vender supera el stock");
+                    alert("La cantidad a vender supera el stock");
                 }
             } else {
                 alert("Error al ingresar el detalle de la venta, revise los datos del articulo");
@@ -249,7 +256,7 @@
 
         function limpiar() {
             $("#pcantidad").val("");
-            $("#pdescuento").val("");
+            $("#pdescuento").val("0");
             $("#pprecio_venta").val("");
         }
 
@@ -263,7 +270,7 @@
 
         function eliminar(index) {
             total = total-subtotal[index];
-            $("#total").html("$/. " + total);
+            $("#total").html("Bs. " + total);
             $("#total_venta").html(total);
             $("#fila" + index).remove();
             evaluar();

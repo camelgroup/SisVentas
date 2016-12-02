@@ -88,7 +88,7 @@
                 <div class="col-lg-4 col-sm-4 col-md-4 col-xs-12">
                     <div class="form-group">
                         <label for="descuento">Descuento</label>
-                        <input type="text" name="pdescuento" id="pdescuento" class="form-control" value="0" 
+                        <input type="number" min="0" name="pdescuento" id="pdescuento" class="form-control" value="0" 
                                placeholder="Descuento...">
                     </div>
                 </div>
@@ -116,7 +116,7 @@
                         <th></th>
                         <th></th>
                         <th></th>
-                        <th><h4 id="total">S/. 0.00</h4><input type="hidden"
+                        <th><h4 id="total">Bs. 0.00</h4><input type="hidden"
                                                                name="total_venta" id="total_venta"></th>
                         </tfoot>
                         <tbody>

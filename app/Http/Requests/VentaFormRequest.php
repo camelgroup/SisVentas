@@ -29,9 +29,9 @@ class VentaFormRequest extends Request
             'serie_comprobante' => 'max:7',
             'num_comprobante' => 'required|max:10',
             'idarticulo' => 'required',
-            'cantidad' => 'required',
-            'precio_venta' => 'required',
-            'descuento' => 'required',
+            'cantidad' => 'required|min:0',
+            'precio_venta' => 'required|min:0',
+            'descuento' => 'required|min:0',
             'total_venta' => 'required',
         ];
     }
