@@ -17,6 +17,8 @@
     <h1>CAMEL GROUP</h1>
 </header>
 <section class="cd-faq">
+<div>
+<div style="width:300px;display:inline-block">
     <div class="cd-faq-items">
         <ul id="Integrantes" class="cd-faq-group">
             <li class="cd-faq-title"><h2>Integrantes</h2></li>
@@ -42,6 +44,11 @@
             <a href="https://app.scrumdo.com/projects/sisventas/board#/view">Scrum by Camel</a>
         </ul> <!-- cd-faq-group -->
     </div>
+</div>
+	<div style="display:inline-block;vertical-align:top">
+		<img src="http://localhost:8000/imagenes/Logo.jpg" alt="CAMEL GROUP" height="300px" width="300px" class="img-thumbnail">
+	</div>
+</div>
 </section>
     <script src="js/jquery-2.1.1.js"></script>
     <script src="js/jquery.mobile.custom.min.js"></script>

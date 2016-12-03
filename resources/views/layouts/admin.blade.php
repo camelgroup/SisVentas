@@ -56,11 +56,10 @@
                             <li class="user-header">
 
                                 <p>
-                                    www.incanatoit.com - Desarrollando Software
-                                    <small>www.youtube.com/jcarlosad7</small>
+                                    Camel Group- Desarrollando Software
                                 </p>
+								<img src="http://localhost:8000/imagenes/IconoUsuario.png" alt="CAMEL GROUP" height="100px" width="100px">
                             </li>
-
                             <!-- Menu Footer-->
                             <li class="user-footer">
 
