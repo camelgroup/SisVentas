@@ -21,6 +21,7 @@ Route::resource('ventas/cliente','ClienteController');
 //Route::get('/{slug?}', 'ClienteController@index');
 Route::resource('ventas/venta','VentaController');
 Route::resource('nosotros/camel','CController');
+Route::resource('acceso/usuario','UsuarioController');
 Route::auth();
 
 Route::get('/home', 'HomeController@index');
